@@ -5,6 +5,7 @@ version: 1
 
 /project:
   description: Projects Endpoint
+
   get:
     description: Fetch all Projects
     queryParameters:
@@ -13,6 +14,14 @@ version: 1
         required: false
         type: integer
         example: 1
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [{"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1},
+              {"id" : "123e4567-e89b-12d3-a456-426655440001", "name":"Project 1", "priority":5}]
+
   post:
     description: Create new Project
     body:
@@ -20,20 +29,52 @@ version: 1
         example:
           {"name":"Project 2", "priority":1}
     queryParameters:
-                  token:
-                    required: true
-                    example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+      token:
+        required: true
+        example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+
+
   /{projectId}:
+
     get:
       description: Fetch specific Project
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+
     put:
       description: Update specific Project
       queryParameters:
         token:
           required: true
+      body:
+        application/json:
+          example:
+            {"name":"Project 2"}
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+
     delete:
-      description: Delete specific Project
+      description: Remove specific Project
       queryParameters:
-              token:
-                required: true
-                example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+        token:
+          required: true
+            example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"status":"OK"}
