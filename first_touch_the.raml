@@ -6,8 +6,34 @@ version: 1
 /project:
   description: Projects Endpoint
   get:
+    description: Fetch all Projects
+    queryParameters:
+      priority:
+        description: Fetch all Projects with piority
+        required: false
+        type: integer
+        example: 1
   post:
+    description: Create new Project
+    body:
+      application/json:
+        example:
+          {"name":"Project 2", "priority":1}
+    queryParameters:
+                  token:
+                    required: true
+                    example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
   /{projectId}:
     get:
+      description: Fetch specific Project
     put:
+      description: Update specific Project
+      queryParameters:
+        token:
+          required: true
     delete:
+      description: Delete specific Project
+      queryParameters:
+              token:
+                required: true
+                example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
