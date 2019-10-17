@@ -3,46 +3,85 @@ title: My first touch the RAML
 baseUri: http://localhost:8080/api/v1
 version: 1
 
+resourceTypes:
+
+  collection:
+    get:
+      description: Fetch all <<resourcePathName|!pluralize>>
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include projects-colection.smaple
+    post:
+      description: Create <<resourcePathName|!singularize>>
+      queryParameters:
+            token:
+              required: true
+              example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include project-json.sample
+
+  item:
+    get:
+      description: Fetch specific <<resourcePathName|!singularize>>
+      responses:
+        404:
+          body:
+            application/json:
+              !include not-found-error-json.sample
+    put:
+      description: Update specific <<resourcePathName|!singularize>>
+      queryParameters:
+              token:
+                required: true
+                  example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+      responses:
+        404:
+          body:
+            application/json:
+              !include not-found-error-json.sample
+    delete:
+      description: Remove specific <<resourcePathName|!singularize>>
+      queryParameters:
+              token:
+                required: true
+                  example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+      responses:
+        404:
+          body:
+            application/json:
+              !include not-found-error-json.sample
+
+##################### API #####################
+
 /project:
-  description: Projects Endpoint
+  type: collection
 
   get:
-    description: Fetch all Projects
-    queryParameters:
+  queryParameters:
       priority:
         description: Fetch all Projects with piority
         required: false
         type: integer
         example: 1
-    responses:
-      200:
-        body:
-          application/json:
-            example:
-              !include projects-colection.smaple
 
   post:
-    description: Create new Project
     body:
       application/json:
         example:
           !include project-create-json.sample
-    queryParameters:
-      token:
-        required: true
-        example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
-    responses:
-      200:
-        body:
-          application/json:
-            example:
-              !include project-json.sample
 
 
   /{projectId}:
+    type: item
 
     get:
-      description: Fetch specific Project
       responses:
         200:
           body:
@@ -51,14 +90,10 @@ version: 1
                 !include project-json.sample
 
     put:
-      description: Update specific Project
-      queryParameters:
-        token:
-          required: true
       body:
         application/json:
           example:
-            {"name":"Project 2"}
+            !include project-update-request.sample
       responses:
         200:
           body:
@@ -67,11 +102,6 @@ version: 1
                 !include project-json.sample
 
     delete:
-      description: Remove specific Project
-      queryParameters:
-        token:
-          required: true
-            example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
       responses:
         200:
           body:
