@@ -12,7 +12,7 @@ resourceTypes:
           body:
             application/json:
               example:
-                <<colection_get_example>>
+                <<collection_get_example>>
 
     post:
       description: Create <<resourcePathName|!singularize>>
@@ -26,7 +26,7 @@ resourceTypes:
           body:
             application/json:
               example:
-                <<colection_post_example>>
+                <<collection_post_example>>
 
   item:
     get:
@@ -61,10 +61,10 @@ resourceTypes:
     delete:
       description: Remove specific <<resourcePathName|!singularize>>
       queryParameters:
-              token:
-                required: true
-                example:
-                  !include token.sample
+        token:
+          required: true
+          example:
+            !include token.sample
       responses:
         404:
           body:
@@ -74,7 +74,7 @@ resourceTypes:
           body:
             application/json:
               example:
-                <<item_put_exmaple>>
+                <<item_delete_exmaple>>
 
 ##################### API #####################
 
@@ -86,10 +86,10 @@ resourceTypes:
   get:
     queryParameters:
         priority:
-        description: Fetch all Projects with piority
-        required: false
-        type: integer
-        example: 1
+          description: Fetch all Projects with piority
+          required: false
+          type: integer
+          example: 1
   post:
     body:
       application/json:
