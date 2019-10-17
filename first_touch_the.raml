@@ -95,6 +95,12 @@ resourceTypes:
       application/json:
         example:
           !include project-create-json.sample
+    responses:
+      200:
+        body:
+          application/json:
+            type:
+              !include project-type.schema
 
   /{projectId}:
     type:
