@@ -10,7 +10,7 @@ version: 1
     description: Fetch all Projects
     queryParameters:
       priority:
-        description: Fetch all Projects with piority
+        description: Priority parameter to fetch all Projects with given priority
         required: false
         type: integer
         example: 1
@@ -30,7 +30,8 @@ version: 1
     queryParameters:
       token:
         required: true
-        example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+        example:
+          !include token.sample
     responses:
       200:
         body:
@@ -55,10 +56,13 @@ version: 1
       queryParameters:
         token:
           required: true
+          example:
+            !include token.sample
       body:
         application/json:
           example:
-            {"name":"Project 2"}
+            !include project-update-request.sample
+
       responses:
         200:
           body:
@@ -71,7 +75,8 @@ version: 1
       queryParameters:
         token:
           required: true
-            example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+            example:
+              !include token.sample
       responses:
         200:
           body:
