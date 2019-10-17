@@ -76,6 +76,15 @@ resourceTypes:
               example:
                 <<item_delete_exmaple>>
 
+traits:
+  nameSearchable:
+    queryParameters:
+      name:
+        description: <<description>>
+        required: false
+        type: string
+        example: <<example>>
+        
 ##################### API #####################
 
 /project:
@@ -85,11 +94,13 @@ resourceTypes:
       collection_post_example: !include project-json.sample
   get:
     queryParameters:
-        priority:
-          description: Fetch all Projects with piority
-          required: false
-          type: integer
-          example: 1
+          priority:
+            description: Fetch all Projects with priority
+            required: false
+            type: integer
+            example: 1
+    is: [nameSearchable: {description: "Fetch all Projects which name contains word", example: "Proj"}]
+
   post:
     body:
       application/json:
@@ -113,8 +124,6 @@ resourceTypes:
         application/json:
           example:
             !include project-update-request.sample
-
-
 
 /user:
   type:
