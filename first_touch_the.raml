@@ -10,7 +10,7 @@ version: 1
     description: Fetch all Projects
     queryParameters:
       priority:
-        description: Fetch all Projects with piority
+        description: Priority parameter to fetch all Projects with given priority
         required: false
         type: integer
         example: 1
@@ -19,25 +19,25 @@ version: 1
         body:
           application/json:
             example:
-              [{"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1},
-              {"id" : "123e4567-e89b-12d3-a456-426655440001", "name":"Project 1", "priority":5}]
+              [{"id" : "123e4567-e89b-12d3-a456-426655440000", "name" : "Project 2", "priority" : 1},
+              {"id" : "123e4567-e89b-12d3-a456-426655440001", "name" : "Project 1", "priority" : 5}]
 
   post:
     description: Create new Project
     body:
       application/json:
         example:
-          {"name":"Project 2", "priority":1}
+          {"name" : "Project 2", "priority" : 1}
     queryParameters:
       token:
         required: true
-        example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+        example: cca9b360-5eba-491a-b165-4ec86b77af83
     responses:
       200:
         body:
           application/json:
             example:
-              {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+              {"id" : "123e4567-e89b-12d3-a456-426655440000", "name" : "Project 2", "priority" : 1}
 
 
   /{projectId}:
@@ -49,7 +49,7 @@ version: 1
           body:
             application/json:
               example:
-                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name" : "Project 2", "priority" : 1}
 
     put:
       description: Update specific Project
@@ -59,22 +59,23 @@ version: 1
       body:
         application/json:
           example:
-            {"name":"Project 2"}
+            {"name" : "Project 2"}
       responses:
         200:
           body:
             application/json:
               example:
-                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name":"Project 2", "priority":1}
+                {"id" : "123e4567-e89b-12d3-a456-426655440000", "name" : "Project 2", "priority" : 1}
 
     delete:
       description: Remove specific Project
       queryParameters:
         token:
           required: true
-            example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+            example: cca9b360-5eba-491a-b165-4ec86b77af83
       responses:
         200:
           body:
             application/json:
-              example: {"status":"OK"}
+              example:
+                {"status" : "OK"}
