@@ -19,7 +19,8 @@ resourceTypes:
       queryParameters:
             token:
               required: true
-              example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+              example:
+                !include token.sample
       responses:
         200:
           body:
@@ -40,7 +41,8 @@ resourceTypes:
       queryParameters:
               token:
                 required: true
-                  example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+                example:
+                  !include token.sample
       responses:
         404:
           body:
@@ -51,7 +53,8 @@ resourceTypes:
       queryParameters:
               token:
                 required: true
-                  example: GSTH#$TVVqw5sdfsQ$#%sfdgsdfg
+                example:
+                  !include token.sample
       responses:
         404:
           body:
@@ -64,8 +67,8 @@ resourceTypes:
   type: collection
 
   get:
-  queryParameters:
-      priority:
+    queryParameters:
+        priority:
         description: Fetch all Projects with piority
         required: false
         type: integer
