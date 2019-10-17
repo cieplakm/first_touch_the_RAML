@@ -4,7 +4,6 @@ baseUri: http://localhost:8080/api/v1
 version: 1
 
 resourceTypes:
-
   collection:
     get:
       description: Fetch all <<resourcePathName|!pluralize>>
@@ -13,20 +12,21 @@ resourceTypes:
           body:
             application/json:
               example:
-                !include projects-colection.smaple
+                <<colection_get_example>>
+
     post:
       description: Create <<resourcePathName|!singularize>>
       queryParameters:
-            token:
-              required: true
-              example:
-                !include token.sample
+        token:
+          required: true
+          example:
+            !include token.sample
       responses:
         200:
           body:
             application/json:
               example:
-                !include project-json.sample
+                <<colection_post_example>>
 
   item:
     get:
@@ -36,18 +36,28 @@ resourceTypes:
           body:
             application/json:
               !include not-found-error-json.sample
+        200:
+          body:
+            application/json:
+              example:
+                <<item_get_exmaple>>
     put:
       description: Update specific <<resourcePathName|!singularize>>
       queryParameters:
-              token:
-                required: true
-                example:
-                  !include token.sample
+        token:
+          required: true
+          example:
+            !include token.sample
       responses:
         404:
           body:
             application/json:
               !include not-found-error-json.sample
+        200:
+          body:
+            application/json:
+              example:
+                <<item_put_exmaple>>
     delete:
       description: Remove specific <<resourcePathName|!singularize>>
       queryParameters:
@@ -60,12 +70,19 @@ resourceTypes:
           body:
             application/json:
               !include not-found-error-json.sample
+        200:
+          body:
+            application/json:
+              example:
+                <<item_put_exmaple>>
 
 ##################### API #####################
 
 /project:
-  type: collection
-
+  type:
+    collection:
+      collection_get_example: !include projects-colection.smaple
+      collection_post_example: !include project-json.sample
   get:
     queryParameters:
         priority:
@@ -73,41 +90,22 @@ resourceTypes:
         required: false
         type: integer
         example: 1
-
   post:
     body:
       application/json:
         example:
           !include project-create-json.sample
 
-
   /{projectId}:
-    type: item
-
+    type:
+      item:
+        item_get_exmaple: !include project-json.sample
+        item_put_exmaple: !include project-json.sample
+        item_delete_exmaple: !include status-json.smaple
     get:
-      responses:
-        200:
-          body:
-            application/json:
-              example:
-                !include project-json.sample
-
     put:
       body:
         application/json:
           example:
             !include project-update-request.sample
-      responses:
-        200:
-          body:
-            application/json:
-              example:
-                !include project-json.sample
-
     delete:
-      responses:
-        200:
-          body:
-            application/json:
-              example:
-                !include status-json.smaple

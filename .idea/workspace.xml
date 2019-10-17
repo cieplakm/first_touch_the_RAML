@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd172f2e-566f-4b57-a515-830c5dcdb0ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/token.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api_doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/api_doc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/first_touch_the.raml" beforeDir="false" afterPath="$PROJECT_DIR$/first_touch_the.raml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-create-json.sample" beforeDir="false" afterPath="$PROJECT_DIR$/project-create-json.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-json.sample" beforeDir="false" afterPath="$PROJECT_DIR$/project-json.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-update-request.sample" beforeDir="false" afterPath="$PROJECT_DIR$/project-update-request.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects-colection.smaple" beforeDir="false" afterPath="$PROJECT_DIR$/projects-colection.smaple" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
